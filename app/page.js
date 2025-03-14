@@ -9,14 +9,14 @@ export default function Home() {
     <main>
       <section className="bg-base-200 flex justify-between items-center px-8 py-2">
         <div className="font-bold">Leo Saas</div>
-        <div className="space-x-4">
+        <div className="space-x-4 max-md:hidden ">
           <a className="link link-hover">FAQ</a>
           <a className="link link-hover">Pricing</a>
           </div>
         <div><ButtonLogin isLoggedIn={isLoggedIn} name={name}/></div>
       </section>
       <section className="text-center py-32 px-8 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-extrabold mb-6">Collect customer feedback to build better projects</h1>
+      <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">Collect customer feedback to build better projects</h1>
       <div className="opacity-90 mb-10">
         Create a feedback board in minutes, prioritize features, 
         and build products that your customers will love.
