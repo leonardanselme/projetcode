@@ -7,7 +7,7 @@ export default function Home() {
   const isLoggedIn = true;
   const name = "John";
 
-  const greeting = `Hello, ${isLoggedIn ? name : "there"}`;
+  //const greeting = `Hello, ${isLoggedIn ? name : "there"}`;
 
   return (
     <main>
