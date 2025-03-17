@@ -1,45 +1,162 @@
-
- import ButtonLogin from "@/components/ButtonLogin";
+import ButtonLogin from "@/components/ButtonLogin";
+import FAQListItem from "@/components/FAQListItem";
 
 export default function Home() {
   const isLoggedIn = true;
   const name = "John";
 
+  const greeting = `Hello, ${isLoggedIn ? name : "there"}`;
+
   return (
     <main>
+      {/*HEADER*/}
       <section className="bg-base-200 flex justify-between items-center px-8 py-2">
         <div className="font-bold">Leo Saas</div>
         <div className="space-x-4 max-md:hidden ">
-          <a className="link link-hover">FAQ</a>
-          <a className="link link-hover">Pricing</a>
-          </div>
-        <div><ButtonLogin isLoggedIn={isLoggedIn} name={name}/></div>
+          <a className="link link-hover" href="#faq">
+            FAQ
+          </a>
+          <a className="link link-hover" href="#pricing">
+            Pricing
+          </a>
+        </div>
+        <div>
+          <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+        </div>
       </section>
+      {/*HERO*/}
       <section className="text-center py-32 px-8 max-w-3xl mx-auto">
-      <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">Collect customer feedback to build better projects</h1>
-      <div className="opacity-90 mb-10">
-        Create a feedback board in minutes, prioritize features, 
-        and build products that your customers will love.
-      </div>
-     
+        <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">
+          Collect customer feedback to build better projects
+        </h1>
+        <div className="opacity-90 mb-10">
+          Create a feedback board in minutes, prioritize features, and build
+          products that your customers will love.
+        </div>
 
-      <ButtonLogin isLoggedIn={isLoggedIn} name={name}/>
+        <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
       </section>
-        
+      {/*PRICING*/}
 
-     
+      <section className="bg-base 200" id="pricing">
+        <div className="py-32 px-8 max-w-3xl mx-auto">
+          <p className="text-sm uppercase font-medium text-center text-primary mb-4">
+            {" "}
+            Pricing
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-extrabold mb-12 text-center">
+            A pricing that adapt to your needs
+          </h2>
 
+          <div className="p-8 bg-gray-50 rounded-3xl mx-auto space-y-6 w-80 ">
+            <div className="flex gap-2 items-baseline">
+              <div className="text-4xl font-black">19$ </div>
+              <div className="uppercase text-sm font-medium opacity-60">
+                /month
+              </div>
+            </div>
+
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="text-green-600 size-4"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Collect feedback{" "}
+              </li>
+              <li className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="text-green-600 size-4"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Unlimited boards
+              </li>
+              <li className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="text-green-600 size-4"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Admin dashboard
+              </li>
+              <li className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="text-green-600 size-4"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M15 8c0 .982-.472 1.854-1.202 2.402a2.995 2.995 0 0 1-.848 2.547 2.995 2.995 0 0 1-2.548.849A2.996 2.996 0 0 1 8 15a2.996 2.996 0 0 1-2.402-1.202 2.995 2.995 0 0 1-2.547-.848 2.995 2.995 0 0 1-.849-2.548A2.996 2.996 0 0 1 1 8c0-.982.472-1.854 1.202-2.402a2.995 2.995 0 0 1 .848-2.547 2.995 2.995 0 0 1 2.548-.849A2.995 2.995 0 0 1 8 1c.982 0 1.854.472 2.402 1.202a2.995 2.995 0 0 1 2.547.848c.695.695.978 1.645.849 2.548A2.996 2.996 0 0 1 15 8Zm-3.291-2.843a.75.75 0 0 1 .135 1.052l-4.25 5.5a.75.75 0 0 1-1.151.043l-2.25-2.5a.75.75 0 1 1 1.114-1.004l1.65 1.832 3.7-4.789a.75.75 0 0 1 1.052-.134Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                24/7 Support
+              </li>
+            </ul>
+
+            <ButtonLogin
+              isLoggedIn={isLoggedIn}
+              name={name}
+              extraStyle="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/*FAQ*/}
+      <section className="bg-base 200" id="faq">
+        <div className="py-32 px-8 max-w-3xl mx-auto">
+          <p className="text-sm uppercase font-medium text-center text-primary mb-4">
+            {" "}
+            FAQ
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-extrabold mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <ul className="max-w-lg mx-auto">
+            {[
+              { question: "What do I get?", answer: "Loreum Ipsum" },
+              { question: "How do I get started?", answer: "Loreum Ipsum" },
+              { question: "Do you offer a free plan?", answer: "Loreum Ipsum" },
+            ].map(
+              (
+                qa //Dans cet exemple, qa contient les objets  { question: "Q", answer: "A" }
+              ) => (
+                <FAQListItem key={qa.question} qa={qa} />
+              )
+            )}
+          </ul>
+        </div>
+      </section>
     </main>
-
-
-    
   );
-} 
-
-
-
-
-
+}
 
 /*
 import Image from "next/image";
