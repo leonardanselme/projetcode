@@ -2,11 +2,14 @@ import ButtonLogin from "@/components/ButtonLogin";
 import FAQListItem from "@/components/FAQListItem";
 import Image from "next/image";
 import productDemo from "@/app/productDemo.jpeg";
+import { auth } from "@/auth";
 //import clientPromise from "@/libs/mongo";
 
-export default function Home() {
+export default async function Home() {
   const isLoggedIn = true;
   const name = "John";
+
+  const session = await auth();
 
   //const greeting = `Hello, ${isLoggedIn ? name : "there"}`;
 
@@ -25,7 +28,7 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+            <ButtonLogin session={session} />
           </div>
         </div>
       </section>
@@ -46,7 +49,7 @@ export default function Home() {
             products that your customers will love.
           </div>
 
-          <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+          <ButtonLogin session={session} />
         </div>
       </section>
       {/*PRICING*/}
@@ -132,11 +135,7 @@ export default function Home() {
               </li>
             </ul>
 
-            <ButtonLogin
-              isLoggedIn={isLoggedIn}
-              name={name}
-              extraStyle="w-full"
-            />
+            <ButtonLogin session={session} name={name} extraStyle="w-full" />
           </div>
         </div>
       </section>
