@@ -1,8 +1,7 @@
 "use client";
 
-import { signIn } from "@/auth";
 import Link from "next/link";
-import { signIn } from "next-auth/react"; // ATTENTION, bien importer sigIn comme ici et pas
+import { signIn } from "next-auth/react"; // ATTENTION, bien importer signIn comme ici et pas
 //  depuis auth.js, pour des raisons de sécurité
 //Le bouton est accessible côté client, donc on veut être sûr que le bouton ne puisse pas être utilisé côté serveur.
 //Et que le client ait accès à des informations sensibles comme les clés d'API.

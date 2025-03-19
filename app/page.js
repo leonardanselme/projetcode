@@ -132,7 +132,7 @@ export default async function Home() {
               </li>
             </ul>
 
-            <ButtonLogin session={session} name={name} extraStyle="w-full" />
+            <ButtonLogin session={session} extraStyle="w-full" />
           </div>
         </div>
       </section>
