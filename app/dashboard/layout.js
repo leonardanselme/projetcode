@@ -7,7 +7,7 @@ export default async function LayoutPrivate({ children }) {
   if (!session) {
     redirect("/");
     //Redirige la personne sur la page d'accueil si elle n'est pas connectée
-
-    return children;
   }
+  //Return children only if the user is authenticated
+  return children;
 }
