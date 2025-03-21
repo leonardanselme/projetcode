@@ -9,7 +9,7 @@ export default function Dashboard() {
         <ButtonLogout />
       </section>
 
-      <section classname="px-5 py-12">
+      <section classname="max-w-5xl mx-auto px-5 py-12">
         <FormNewBoard />
       </section>
     </main>
