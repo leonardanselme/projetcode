@@ -1,9 +1,12 @@
+//Boards privés, destinés à être utilisés par l'utilisateur connecté
+
 import { redirect } from "next/navigation";
 import connectMongo from "@/libs/mongoose";
 import Board from "@/models/Board";
 import { auth } from "@/auth";
 import Link from "next/link";
 import CardBoardLink from "@/components/CardBoardLink";
+import ButtonDeleteBoard from "@/components/ButtonDeleteBoard";
 
 const getBoard = async (boardId) => {
   const session = await auth();
@@ -50,6 +53,8 @@ export default async function FeedbackBoard({ params }) {
       </section>
       <section className="max-w-5xl mx-auto px-5 py-12 space-y-12">
         <h1 className="font-extrabold text-xl mb-4">{board.name}</h1>
+        <CardBoardLink boardId={board._id} />
+        <ButtonDeleteBoard boardId={board._id} />
       </section>
     </main>
   );

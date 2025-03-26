@@ -42,6 +42,16 @@ export async function POST(req) {
     // Recherche de l'utilisateur dans la base de données par son ID
     const user = await User.findById(session.user.id);
 
+    if (!user.hasAccess) {
+      // Si l'utilisateur n'a pas accès, retourner une erreur 403 (Forbidden)
+      return NextResponse.json(
+        {
+          error: "Please subscribe first",
+        },
+        { status: 403 }
+      );
+    }
+
     // Création d'un nouveau tableau dans la base de données
     const board = await Board.create({ userId: user._id, name: body.name });
 
@@ -55,6 +65,47 @@ export async function POST(req) {
     return NextResponse.json(board);
   } catch (e) {
     // En cas d'erreur, retourne un message d'erreur avec un statut 500 (Internal Server Error)
+    return NextResponse.json({ error: e.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { searchParams } = req.nextUrl;
+    const boardId = searchParams.get("boardId");
+
+    if (!boardId) {
+      return NextResponse.json(
+        { error: "boardId is required" },
+        { status: 400 }
+      );
+    }
+
+    const session = await auth();
+
+    if (!session) {
+      return NextResponse.json({ error: "Not authorized" }, { status: 401 });
+    }
+
+    const user = await User.findById(session?.user?.id);
+
+    if (!user.hasAccess) {
+      return NextResponse.json(
+        { error: "Please subscribe first" },
+        { status: 403 }
+      );
+    }
+
+    await Board.deleteOne({
+      _id: boardId,
+      userId: session?.user?.id,
+    });
+
+    user.boards = user.boards.filter((id) => id.toString() !== boardId);
+    await user.save();
+
+    return NextResponse.json({});
+  } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
 }

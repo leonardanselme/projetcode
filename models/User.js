@@ -17,6 +17,15 @@ const userSchema = new mongoose.Schema({
     type: String, // Type chaîne de caractères (URL de l'image)
   },
 
+  hasAccess: {
+    type: Boolean, // Type booléen (true/false)
+    default: false, // Valeur par défaut si non spécifiée
+  },
+
+  customerId: {
+    type: String,
+  },
+
   boards: [
     {
       type: mongoose.Schema.Types.ObjectId, // Type ObjectId (référence à un autre document)
