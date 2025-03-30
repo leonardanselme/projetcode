@@ -12,6 +12,9 @@
     "@auth/mongodb-adapter": "^2.6.0",
     "axios": "^1.8.4",
     "bad-words": "^4.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.485.0",
     "mongodb": "^6.14.2",
     "mongoose": "^8.12.1",
     "next": "14.2.0",
@@ -19,7 +22,10 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.5.2",
-    "stripe": "^17.7.0"
+    "shadcn": "^2.4.0-canary.17",
+    "stripe": "^17.7.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
