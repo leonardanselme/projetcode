@@ -10,7 +10,7 @@ const connectMongo = async () => {
   } catch (e) {
     // Erreur lors de la connexion
     // Note: il y a une faute de frappe dans "console" (écrit "consol")
-    consol.error("Mongoose Error:" + e.message);
+    console.error("Mongoose Error:" + e.message);
     // Cela devrait être corrigé en "console.error"
   }
 };
