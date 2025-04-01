@@ -1,31 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { signIn } from "next-auth/react"; // ATTENTION, bien importer signIn comme ici et pas
-//  depuis auth.js, pour des raisons de sécurité
-//Le bouton est accessible côté client, donc on veut être sûr que le bouton ne puisse pas être utilisé côté serveur.
-//Et que le client ait accès à des informations sensibles comme les clés d'API.
+import { signIn } from "next-auth/react";
 
-const ButtonLogin = ({ session, extraStyle }) => {
+const ButtonLogin = ({ session, extraStyle = "" }) => {
   const dashboardUrl = "/dashboard";
+
   if (session) {
     return (
       <Link
         href={dashboardUrl}
-        className={`btn btn-primary ${extraStyle ? extraStyle : ""}`}
+        className={`inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${extraStyle}`}
       >
-        <p>Welcome back {session.user.name || "friend"}</p>
+        Dashboard
       </Link>
     );
   } else {
     return (
       <button
-        className={`btn btn-primary ${extraStyle ? extraStyle : ""}`}
+        className={`inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${extraStyle}`}
         onClick={() => {
-          signIn(undefined, { callbackUrl: dashboardUrl }); //On a 2 providers, on ne sait pas lequel choisir, donc on laisse undefined}}
+          signIn(undefined, { callbackUrl: dashboardUrl });
         }}
       >
-        Get started
+        Get Started
       </button>
     );
   }
