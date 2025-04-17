@@ -23,20 +23,20 @@ export default async function Dashboard() {
   console.log(user);
 
   return (
-    <main className="bg-base-200 min-h-screen">
+    <main className="flex-1">
       {/*HEADER*/}
-      <section className="bg base-100 ">
-        <div className="max-w-5xl mx-auto px-5 py-3 flex justify-between">
+      <header className="sticky top-0 z-40 w-full border-b bg-background">
+        <div className="container flex h-16 items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
           {user.hasAccess ? <ButtonPortal /> : <ButtonCheckout />}
           <ButtonLogout />
         </div>
-      </section>
+      </header>
 
-      <section className="max-w-5xl mx-auto px-5 py-12 space-y-12">
+      <section className="container mx-auto space-y-6 py-8 md:py-12 lg:py-24 px-4 sm:px-6 lg:px-8">
         <FormNewBoard />
 
         <div>
-          <h1 className="font-extrabold text-xl mb-4 ">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             {user.boards.length} Boards
           </h1>
 
@@ -46,9 +46,8 @@ export default async function Dashboard() {
                 <li key={board._id}>
                   <Link
                     href={`dashboard/b/${board._id}`}
-                    className="block bg-base-100 p-6 rounded-3xl hover:bg-neutral hover:text-neutral-content duration-200"
+                    className="block bg-white border border-gray-300 p-6 rounded-3xl hover:bg-neutral hover:text-neutral-content duration-200"
                   >
-                    {" "}
                     {board.name}
                   </Link>
                 </li>

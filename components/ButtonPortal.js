@@ -23,7 +23,7 @@ const ButtonPortal = () => {
   };
 
   return (
-    <button className="btn btn-primary" onClick={() => handleBilling()}>
+    <button className="btn bg-black text-white" onClick={() => handleBilling()}>
       {isLoading && (
         <span className="loading loading-spinner loading-xs"></span>
       )}

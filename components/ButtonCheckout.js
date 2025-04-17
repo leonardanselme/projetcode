@@ -31,7 +31,10 @@ const ButtonCheckout = () => {
   };
 
   return (
-    <button className="btn btn-primary" onClick={() => handleSubscribe()}>
+    <button
+      className="btn bg-black text-white"
+      onClick={() => handleSubscribe()}
+    >
       {isLoading && (
         <span className="loading loading-spinner loading-xs"></span>
       )}

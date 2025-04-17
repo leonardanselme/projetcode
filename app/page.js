@@ -94,8 +94,9 @@ export default async function Home() {
                 <div className="space-y-2">
                   <h3 className="font-bold">Collect Feedback</h3>
                   <p className="text-sm text-muted-foreground">
-                    Create branded feedback portals that match your company's
-                    identity and engage your audience effectively.
+                    Create branded feedback portals that match your
+                    company&apos;s identity and engage your audience
+                    effectively.
                   </p>
                 </div>
               </div>
@@ -381,8 +382,8 @@ export default async function Home() {
               <h3 className="text-lg font-medium">How do I get started?</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Simply sign up for an account, create your first feedback board,
-                and share the link with your customers. You'll start receiving
-                feedback right away.
+                and share the link with your customers. You&apos;ll start
+                receiving feedback right away.
               </p>
             </div>
             <div className="rounded-lg border bg-background p-6">

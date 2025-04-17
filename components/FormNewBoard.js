@@ -47,26 +47,28 @@ const FormNewBoard = () => {
   // Rendu du composant
   return (
     <form
-      className="bg-base-100 p-8 rounded-3xl space-y-8"
+      className="bg-white border border-gray-300 p-8 rounded-3xl space-y-8"
       onSubmit={handleSubmit}
     >
-      <p className="font-bold text-lg">Create a new feedback board</p>
+      <p className="font-bold text-lg text-black">
+        Create a new feedback board
+      </p>
 
       <label className="form-control w-full">
         <div className="label">
-          <span className="label-text">Board name</span>
+          <span className="label-text text-black">Board name</span>
         </div>
         <input
           required
           type="text"
           placeholder="Future Unicorn Inc"
-          className="input input-bordered w-full"
+          className="input input-bordered w-full border-gray-300 bg-white text-black"
           value={name}
           onChange={(event) => setName(event.target.value)} // Met à jour l'état name lors de la saisie
         />
       </label>
 
-      <button className="btn btn-primary w-full" type="submit">
+      <button className="btn bg-black text-white w-full" type="submit">
         {isLoading && (
           <span className="loading loading-spinner loading-xs"></span>
         )}
